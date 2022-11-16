@@ -1,0 +1,48 @@
+{% extends 'flightbookapp/index.html' %}
+
+{% load static %}
+
+{% block title %}Createaccount{% endblock title %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/create.css' %}">
+{% endblock css %}
+
+{% block body %}
+<br>
+<br>
+<h1 style="font-family: fantasy; color: darkblue; text-align: center;">Create account</h1>
+<center>
+<form action="createacc" method="POST">
+  {% csrf_token %}
+  <br><br><br>
+  <input type="text" name="first_name" style="color: red;" placeholder="First Name" required><br>
+  <br>
+  <input type="text" name="last_name" style="color: red;" placeholder="Last Name" required><br>
+  <br>
+  <input type="text" name="username" style="color: red;" placeholder="Username" required><br>
+  <br>
+  <input type="text" name="address" style="color: red;" placeholder="Address" required><br>
+  <br>
+  <input type="text" name="phonenumber" style="color: red;" placeholder="Phone number" required><br>
+  <br>
+  <input type="email" name="email" style="color: red;" placeholder="email" required><br>
+  <br>
+  <input type="password" name="password1" style="color: red;" placeholder="First password" required><br>
+  <br>
+  <input type="password" name="password2" style="color: red;" placeholder="confirm password" required><br>
+  <br>
+  <input type="submit" class="btn btn-success">
+  <br>
+  <br>
+  <a href="{% url 'userlogin' %}" class="btn btn-primary">Go back to login</a>
+</form>
+
+<div>
+  {% for msg in messages %}
+    <h5 style="color:blue;">{{msg}}</h5>
+  {% endfor %}
+
+</div>
+</center>
+{% endblock body %}

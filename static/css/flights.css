@@ -1,0 +1,53 @@
+.box-head{
+    box-shadow:hsl(0, 4%, 5%) 0 0 16px;
+	background-color: rgb(134, 203, 248);
+	border-radius: 4px;
+	padding: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 20px;
+}
+
+.box-table{
+    box-shadow:hsl(0, 4%, 5%) 0 0 16px;
+	background-color: rgb(115, 248, 226);
+	border-radius: 4px;
+	padding: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.table-row{
+    display: flex;
+    align-items: flex-stretch;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #05032c;
+}
+
+.item{
+    flex: 2;
+    font-weight: bold;
+}
+
+.quantity{
+    display: inline-block;
+    font-weight: 500;
+    padding-right:10px;
+}
+.image_display{
+    width: 80px;
+	height: 80px;
+    margin-left: 60px;
+}
+
+
+.quan_change{
+    width: 14px;
+    cursor: pointer;
+    display: block;
+    margin-top: 5px;
+    transition: .1s;
+}
+
+

@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | {% block title %}{% endblock title %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'css/addflight.css' %}">
+    {% endblock css %}
+    
+</head>
+<body>
+
+    
+    <div class="wrapper bg-white">
+        <form action="addflight" method="POST">
+            {% csrf_token %}
+            <div class="form-group border-bottom d-flex align-items-center position-relative">
+                <input type="text" name="fnumberi" required placeholder="Flight Number" class="form-control">
+                <div class="label" id="fnumber"></div>
+                <span class="fas fa-users text-muted"></span>
+            </div>
+            <br>
+            <div class="form-group border-bottom d-flex align-items-center position-relative">
+                <input type="text" name="airlinei" required placeholder="Airlines" class="form-control">
+                <div class="label" id="airline"></div>
+                <span class="fas fa-users text-muted"></span>
+            </div>
+
+            <div class="form-group d-sm-flex margin">
+                <div class="d-flex align-items-center flex-fill me-sm-1 my-sm-0 my-4 border-bottom position-relative">
+                    <input type="text" name="fromi" required placeholder="From" class="form-control">
+                    <div class="label" id="from"></div>
+                    <span class="fas fa-dot-circle text-muted"></span>
+                </div>
+                <div class="d-flex align-items-center flex-fill ms-sm-1 my-sm-0 my-4 border-bottom position-relative">
+                    <input type="text" name="toi" required placeholder="To" class="form-control">
+                    <div class="label" id="to"></div>
+                    <span class="fas fa-map-marker text-muted"></span>
+                </div>
+            </div>
+            <div class="form-group d-sm-flex margin">
+                <div class="d-flex align-items-center flex-fill ms-sm-1 my-sm-0 border-bottom position-relative">
+                    <input type="text" name="departi" required placeholder="Depart date and time" class="form-control">
+                    <div class="label" id="depart"></div>
+                    <span class="fas fa-map-marker text-muted"></span>
+                </div>
+                <div class="d-flex align-items-center flex-fill ms-sm-1 my-sm-0 my-4 border-bottom position-relative">
+                    <input type="text" name="arrivali" required placeholder="Arrival date and time" class="form-control">
+                    <div class="label" id="arrival"></div>
+                    <span class="fas fa-map-marker text-muted"></span>
+                </div>
+            </div>
+            <div class="form-group border-bottom d-flex align-items-center position-relative">
+                <input type="text" name="pricei" required placeholder="Price" class="form-control">
+                <div class="label" id="price"></div>
+                <span class="fas fa-users text-muted"></span>
+            </div><br>
+            <div class="form-group border-bottom d-flex align-items-center position-relative">
+                <input type="text" name="capacityi" required placeholder="Capacity" class="form-control">
+                <div class="label" id="capacity"></div>
+                <span class="fas fa-users text-muted"></span>
+            </div><br>
+            <div class="form-group border-bottom d-flex align-items-center position-relative">
+                <input type="text" name="vaccancyi" required placeholder="Vaccancy" class="form-control">
+                <div class="label" id="vaccancy"></div>
+                <span class="fas fa-users text-muted"></span>
+            </div>
+            <div class="form-group my-3">
+                <center>
+                    <button type="submit" class="btn btn-success rounded-0 justify-content-center text-center p-3">Add Flights</button>
+                </center>
+            </div>
+        </form>
+
+    </div>
+</body>
