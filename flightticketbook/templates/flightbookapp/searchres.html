@@ -1,0 +1,54 @@
+{% extends 'flightbookapp/dashboard.html' %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/searchres.css' %}">
+{% endblock css %}
+
+{% block content %}
+
+{% if submitbutton == 'search' and request.GET.d != '' %}
+    {% if results %}
+    <center><h4 style="color: darkgreen;">Results for <b>{{ request.GET.d }}</b></h4></center>
+    <br/><br/>
+    <div class="box-table">
+        <div class="table-row">
+            <div class="item">Flight_code</div>
+            <div class="item">Airline</div>
+            <div class="item">Source</div>
+            <div class="item">Destination</div>
+            <div class="item">dep_date</div>
+            <div class="item">arr_date</div>
+            <div class="item">tot_capacity</div>
+            <div class="item">vaccancy</div>
+            <div class="item">price</div>
+            <div class="item">Book</div>
+        </div>
+    </div>
+
+    <br><br>
+    {% for item in results %}
+    
+    <div class="box-table">
+        <div class="table-row">
+                <div class="item">{{item.flight_code}}</div>
+                <div class="item">{{item.airline}}</div>
+                <div class="item">{{item.source}}</div>
+                <div class="item">{{item.destination}}</div>
+                <div class="item">{{item.dep_date}}</div>
+                <div class="item">{{item.arrival_date}}</div>
+                <div class="item">{{item.tot_seat_count}}</div>
+                <div class="item">{{item.vacc_count}}</div>
+                <div class="item">{{item.price}}</div>
+                <div class="item"><a href="bookticket/{{item.flight_code}}"><button class="bth btn-info">Book</button></a></div>
+                
+        </div>
+    </div>
+    {% endfor %}
+
+{% else %}
+    No search results for this query
+{% endif %}
+{% endif %}
+{% endblock content %}

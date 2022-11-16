@@ -1,0 +1,11 @@
+.admin
+{
+    position: relative;
+    padding: 0px 100px;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-direction: column;
+    padding-left: 30%;
+    margin-top: 9%;
+}

@@ -1,0 +1,60 @@
+{% extends 'flightbookapp/index.html' %}
+
+{% load static %}
+
+{% block title %}Login{% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock css %}
+
+
+{% block body %}
+    <!--{{insert_shop}}-->
+    <section class="navbar_home">
+    <nav class="navbar navbar-expand-lg navbar navbar-light" style="background-color: #181717;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#" style="color: white;">Easy Flight Booking</a>
+          <a id="admin" href="{% url 'adminlogin' %}"class="btn btn-info">Admin</a>
+        </div>
+      </nav>
+      </section>
+        
+      <section class="login">
+        <div class="content">
+    
+            <div class="loginform">
+                <form method="POST" action="">
+                  {% csrf_token %}
+                  <center><br><br><br>
+
+                    <div class="labelname">
+                      <label for="Inputusername" class="formlabel" style="color: brown; font-family: fantasy;">Username</label>
+                    </div><br>
+                    <div class="inputBox">
+                      <input type="text" name="Username" id="Inputusername" placeholder=" username" required>
+                    </div><br>
+                    <div class="labelname">
+                      <label for="Inputpassword" class="formlabel" style="color: brown; font-family: fantasy;">Password</label>
+                    </div><br>
+                    <div class="inputBox">
+                      <input type="password" name="Password" id="Inputpassword" placeholder="password" required>
+                    </div><br>
+                        <div class="inputBox">
+                          <input type="submit" class="btn btn-success" name="create"><br>
+                        </div>
+                      </form>
+                      {% for message in messages %}
+                        <p id="messages" style="color: crimson;">{{message}}</p>
+                      {% endfor %}
+                        <div class="create_account">
+                          <br><h6 style="color: crimson;">Don't have exisiting account???</h6><br>
+                          <a href="{% url 'createacc' %}" class="btn btn-outline-primary">signup</a>
+                        </div>
+                  </center>
+                </div>
+               
+        </div>
+    </section>
+        
+{% endblock body %}
